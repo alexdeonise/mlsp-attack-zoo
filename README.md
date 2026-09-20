@@ -100,3 +100,19 @@ Numele din timm pe care le folosim, toate preantrenate pe ImageNet:
 `results/results.csv` are coloanele: `dataset, model, attack, norm, eps, n, clean_acc, robust_acc, seconds`.
 Fiecare rulare adaugă o linie. Figurile le generați din CSV, nu de mână. Un experiment e gata când
 scriptul îl reproduce de la zero și CSV-ul e comis.
+
+## Ce e în lucrare și ce rămâne future work
+
+În lucrare intră ce e în `results/` la 20 septembrie: grila Linf n=200 (4 modele × FGSM/BIM/PGD × 6 bugete,
+plus DeepFool), AutoAttack n=500 la 1/255, 2/255, 4/255, și testul cu 1000 de clase (`results/test_1000_clase.txt`).
+
+Rămân future work, cu scripturile gata în `scripts/`, dar nerulate:
+
+| Script | Ce face | Scrie în |
+|---|---|---|
+| `scripts/run_transfer.sh` | matricea de transfer 4×4: PGD 4/255 generat pe modelul sursă, evaluat pe toate 4 modelele, n=200 | `results/transfer.csv` |
+| `scripts/run_cw.sh` | Carlini-Wagner L2 pe cele 4 modele, n=200, 100 de pași | `results/results.csv` |
+| `scripts/run_grila_l2.sh` | grila L2 (FGSM/BIM/PGD × 6 bugete de la 0.25 la 8.0) pe cele 4 modele, n=200 | `results/results.csv` |
+
+Fiecare are și o variantă `_test.sh` cu n mic, ca să vezi că merge cap-coadă înainte de rularea mare.
+`run_transfer.sh` merge pe batch-uri și pe GPU-ul de Mac (mps), deci încape și pe un laptop.
