@@ -116,3 +116,7 @@ imagenette,resnet50,fgsm,linf,32/255,50,1.0000,0.8000,2
 imagenette,efficientnet,fgsm,linf,32/255,50,1.0000,0.6200,2
 imagenette,convnext,fgsm,linf,32/255,50,1.0000,0.9000,10
 imagenette,vit,fgsm,linf,32/255,50,0.9800,0.4800,3
+imagenette,vit_in1k,pgd,linf,1/255,200,1.0000,0.5600,49
+imagenette,vit_in1k,pgd,linf,2/255,200,1.0000,0.0950,51
+imagenette,convnext_in22k,pgd,linf,1/255,200,1.0000,0.1750,21
+imagenette,convnext_in22k,pgd,linf,2/255,200,1.0000,0.0450,21
