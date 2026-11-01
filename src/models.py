@@ -10,6 +10,9 @@ NAMES = {
     "efficientnet": "efficientnet_b0.ra_in1k",
     "vit":          "vit_base_patch16_224.augreg_in21k_ft_in1k",
     "convnext":     "convnext_tiny.fb_in1k",
+    # checkpoints that differ only in pretraining data (camera-ready, reviewer 2)
+    "vit_in1k":       "vit_base_patch16_224.augreg_in1k",   # same ViT and recipe, no ImageNet-21k
+    "convnext_in22k": "convnext_tiny.fb_in22k_ft_in1k",     # same ConvNeXt, pretrained on ImageNet-22k
 }
 MEAN = torch.tensor([0.485, 0.456, 0.406]).view(1,3,1,1)
 STD  = torch.tensor([0.229, 0.224, 0.225]).view(1,3,1,1)
